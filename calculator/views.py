@@ -15,11 +15,11 @@ def calc(Z,Wm,Wl,Wk,Wr,Ho):
     def TIME(Z):
         return ( 1/( (1+Z)*(((Wm*((1+Z)**3)) + (Wr*((1+Z)**4)) + Wl + (Wk*((1+Z)**2)))**(1/2)) ) )
     t0,err = integrate.quad(TIME,0,np.inf)
-    T0     = t0*( 3.08*(10**(19)) )/(Ho*3.15 * (10**(16)))            #in Giga years
+    T0     = np.round(t0*( 3.08*(10**(19)) )/(Ho*3.15 * (10**(16))),3)            #in Giga years
     tz,err = integrate.quad(TIME,Z,100000)
-    Tz     = tz*( 3.08*(10**(19)) )/(Ho*3.15 * (10**(16)))            #in Giga years
-    del_T  = (T0 - Tz)
-    print("1.Present age of universe (in Gyears):",T0)
+    Tz     = np.round(tz*( 3.08*(10**(19)) )/(Ho*3.15 * (10**(16))),3)             #in Giga years
+    del_T  = np.round((T0 - Tz),3) 
+    print("1.Present age of universe : ",T0,"Gyears")
     print("2.Age of the universe for user input redshift (in Gyears):",Tz)
     print("3.Look back time for user input redshift (in Gyears):",del_T)
     
@@ -32,10 +32,10 @@ def calc(Z,Wm,Wl,Wk,Wr,Ho):
         return (1*( 3.08*(10**(19)) )/(((Wm*((1+Z)**3)) + (Wr*((1+Z)**4)) + Wl + (Wk*((1+Z)**2)))**(1/2)))
 
     r,err = integrate.quad(fun,0,Z,args=(Wm,Wl,Wk,Wr))
-    rc = r*c/(Ho*3.08* 10**(22))              #(in MPC)
-    dl = (r*c*(1+Z))/(Ho*3.08* 10**(22))      #(in MPC)
-    da = (r*c)/(Ho*(1+Z)*(3.08* 10**(22)))    #(in MPC)
-    ang = da*(10**3)/(206265 )
+    rc = np.round(r*c/(Ho*3.08* 10**(22)),3)               #(in MPC)
+    dl = np.round((r*c*(1+Z))/(Ho*3.08* 10**(22)),3)       #(in MPC)
+    da = np.round((r*c)/(Ho*(1+Z)*(3.08* 10**(22))),3)     #(in MPC)
+    ang = np.round(da*(10**3)/(206265 ),3) 
 
     print("4.Comoving radial distance to user input redshift (in MPC)",rc)
     print("5.Angular diameter distance to user input redshift (in MPC)",da)
@@ -45,7 +45,7 @@ def calc(Z,Wm,Wl,Wk,Wr,Ho):
     #8. Temperature of CMB at user input redshift(K):
 
     Temp0 = 2.7
-    Tcmb  = Temp0*(1+Z) #in Kelvin
+    Tcmb  = np.round(Temp0*(1+Z),3)  #in Kelvin
     print("8.Temperature of CMB at user input redshift(K):",Tcmb)
     return [Tcmb,t0,err,T0,tz,err,Tz,del_T,r,err,rc,dl,da,ang]
 

@@ -105,13 +105,14 @@ html {
     font-family: "lato", sans-serif;
     font-weight: 300;
     font-size: 40px;
-    letter-spacing: 10px;
     padding-left: 10px;
   }
-  #title span {
-    background: -webkit-linear-gradient(white, #38495a);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  #title {
+
+    color: #dddfe2;
+    margin: auto;
+    text-align: center;
+    font-size: 20px;
   }
 
   label {

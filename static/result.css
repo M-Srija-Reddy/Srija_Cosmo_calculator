@@ -6,7 +6,7 @@ html {
 
   .login-box {
     margin: auto;
-    width: 600px;
+    width: 400px;
     padding: 40px;
     background: rgba(62, 52, 85, 0.74);
     box-sizing: border-box;
@@ -69,11 +69,13 @@ html {
   
   .result {
     color: white;
+    font-size: 20px;
   }
 
   .answer{
     padding-left: 15px;
-    color: rgb(163, 178, 236);
+    color: rgb(143, 154, 197);
+    font-size: 25px;
   }
 
   #title {
