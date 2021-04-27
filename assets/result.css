@@ -3,16 +3,6 @@ html {
     background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
     overflow: hidden;
   }
-  .series-frame {
-    max-width: 600px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
-    border: 2px solid #EEE;
-    margin: 30px;
-    padding: 10px;
-  }
 
   .login-box {
 
@@ -27,7 +17,8 @@ html {
     box-shadow: 0 15px 25px rgba(0,0,0,.6);
     border-radius: 10px;
   }
-  .login-box a {
+
+  .login-box .button {
     position: absolute;
     background: rgb(40, 68, 97);
     text-align: center;
